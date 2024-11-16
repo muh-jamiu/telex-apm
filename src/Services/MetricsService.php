@@ -28,18 +28,20 @@ class MetricsService
             'trace' => $exception->getTraceAsString()
         ];
 
+        $telex_msg = '';
+        foreach ($metrics as $key => $value) {
+            $telex_msg .= $key . ': ' . $value . "\n";
+        }
+
         if ($exception instanceof NotFoundHttpException) {
-            $telex_msg = "";
             $this->notFoundExceptionNotification($telex_msg);
         }
 
         if ($exception instanceof \Exception){
-            $telex_msg = "";
             $this->internalServerExceptionNotification($telex_msg);
 
         }
-
-        $telex_msg = "";
+        
         $this->otherUnhandleErrors($telex_msg);
     }
 
