@@ -4,6 +4,7 @@ namespace TelexApm\TelexAPM\Middleware;
 
 use Closure;
 use TelexApm\TelexAPM\Services\MetricsService;
+use Throwable;
 
 class TelexAPMMiddleware
 {
@@ -17,7 +18,7 @@ class TelexAPMMiddleware
     /**
      * Handle an incoming request.
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, Throwable $exception)
     {
         $start = microtime(true);
 
@@ -27,7 +28,7 @@ class TelexAPMMiddleware
         $duration = microtime(true) - $start;
 
         // Collect metrics
-        $this->metricsService->collectMetrics($request, $response, $duration);
+        $this->metricsService->collectMetrics($request, $response, $duration, $exception);
 
         return $response;
     }
