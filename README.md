@@ -26,7 +26,7 @@ To install the package in your Laravel project, follow these steps:
 Run the following command in your Laravel project root directory:
 
 ```bash
-composer require telexorg/telex-apm
+composer require telexapm/telex-php-apm
 ```
 
 ### 2. Publish the Configuration

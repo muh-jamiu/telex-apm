@@ -1,9 +1,9 @@
 <?php
 
-namespace TelexOrg\TelexAPM\Middleware;
+namespace TelexApm\TelexAPM\Middleware;
 
 use Closure;
-use TelexOrg\TelexAPM\Services\MetricsService;
+use TelexApm\TelexAPM\Services\MetricsService;
 
 class TelexAPMMiddleware
 {
